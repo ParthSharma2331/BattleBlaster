@@ -1,0 +1,5 @@
+*.cpp text diff=cpp
+*.h text diff=cpp
+*.cs text diff=csharp
+*.ini text
+*.cfg text
