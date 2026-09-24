@@ -10,6 +10,10 @@
 
 #include "../../../../../gamecode/UE_5.7/Engine/Plugins/Experimental/CineCameraRigs/Source/CineCameraRigs/Public/CineCameraAttachMount.h"
 
+#include "InputMappingContext.h"
+#include "EnhancedInputComponent.h"
+
+
 #include "Tank.generated.h"
 
 /**
@@ -33,6 +37,12 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input") 
+	UInputMappingContext* DefaultMappingContext;
 
 
 	UPROPERTY(VisibleAnywhere)

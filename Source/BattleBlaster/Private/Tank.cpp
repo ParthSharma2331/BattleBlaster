@@ -3,6 +3,9 @@
 
 #include "Tank.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputMappingContext.h"
+
 
 // Called when the game starts or when spawned
 ATank::ATank()
@@ -20,6 +23,25 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
+
+	 
+
+
+
+
+	APlayerController* PlayerController  = Cast<APlayerController>(Controller);
+	if(PlayerController)
+	{
+		ULocalPlayer* LocalPlayer = PlayerController->GetLocalPlayer();
+		if(LocalPlayer)
+		{
+			UEnhancedInputLocalPlayerSubsystem* Subsystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>();
+			if(Subsystem)
+			{
+				Subsystem->AddMappingContext(DefaultMappingContext, 0);
+			}
+		}
+	}
 
 }
 
